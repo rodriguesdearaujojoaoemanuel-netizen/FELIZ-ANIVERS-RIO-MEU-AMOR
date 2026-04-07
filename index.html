@@ -7,54 +7,71 @@
 <style>
 body {
     margin: 0;
-    background: radial-gradient(circle, #1a001f, #000);
+    overflow: hidden;
     font-family: 'Georgia', serif;
+}
+
+/* Fundo memória */
+.memoria {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("SUA_FOTO_AQUI");
+    background-size: cover;
+    background-position: center;
+    animation: zoom 10s ease-in-out infinite alternate;
+}
+
+/* Zoom suave estilo cinema */
+@keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* Overlay escuro */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,0,20,0.6);
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
-/* APP */
+/* App */
 .app {
     width: 360px;
-    max-width: 95%;
-    background: rgba(30, 0, 40, 0.95);
-    border-radius: 30px;
-    box-shadow: 0 0 40px #a855f7;
-    overflow: hidden;
-}
-
-/* Tela */
-.tela {
-    padding: 30px 20px;
-    text-align: center;
+    max-width: 90%;
+    background: rgba(30,0,40,0.85);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #a855f7;
 }
 
 /* Neon */
 .neon {
-    font-size: 36px;
-    color: #fff;
-    text-shadow:
-        0 0 5px #a855f7,
-        0 0 10px #a855f7,
-        0 0 20px #a855f7,
-        0 0 40px #a855f7;
-    animation: pulsar 1.5s infinite;
-}
-
-@keyframes pulsar {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    text-shadow: 0 0 10px #a855f7, 0 0 30px #a855f7;
 }
 
 /* Botão */
 .botao {
     margin-top: 20px;
-    padding: 10px 20px;
-    background: #a855f7;
+    width: 100%;
+    padding: 10px;
     border: none;
     border-radius: 20px;
+    background: #a855f7;
     color: white;
     cursor: pointer;
 }
@@ -62,72 +79,22 @@ body {
 /* Carta */
 .carta {
     display: none;
-    padding: 25px;
+    margin-top: 20px;
 }
 
 .texto {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     color: #f3d9ff;
     white-space: pre-line;
-    text-align: justify;
-}
-
-.contador {
-    margin-top: 25px;
-    text-align: center;
-}
-
-/* Fundo pulsando */
-.pulse {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(168,85,247,0.08);
-    animation: beat 1.2s infinite;
-    z-index: 0;
-}
-
-@keyframes beat {
-    0%,100% { opacity: 0.08; }
-    50% { opacity: 0.25; }
-}
-
-/* Corações */
-.coracao {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: #a855f7;
-    transform: rotate(45deg);
-    animation: subir 2s linear forwards;
-}
-
-.coracao::before,
-.coracao::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background: #a855f7;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.coracao::before { top: -5px; }
-.coracao::after { left: -5px; }
-
-@keyframes subir {
-    to {
-        transform: translateY(-200px) rotate(45deg);
-        opacity: 0;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="memoria"></div>
+<div class="overlay"></div>
 
 <!-- Música -->
 <iframe 
@@ -136,13 +103,14 @@ allow="autoplay"
 style="display:none">
 </iframe>
 
-<!-- Tela inicial -->
-<div class="tela" id="inicio">
+<div class="container">
+<div class="app">
+
+<div id="inicio">
     <div class="neon">Isabella 💜</div>
     <button class="botao" id="btnAbrir">Abrir Carta 💌</button>
 </div>
 
-<!-- Carta -->
 <div class="carta" id="carta">
     <h2 style="text-align:center;">Parabéns Isabella 💜</h2>
 
@@ -151,60 +119,21 @@ Hoje, 07/04/2026… o mundo ganhou um dos seus maiores presentes: você. 💜
 
 Feliz aniversário, meu amor. Mas a verdade é que quem ganha o presente todos os dias sou eu, por ter você na minha vida. Desde que você chegou, tudo mudou — as cores ficaram mais vivas, os dias mais leves e até o tempo parece passar de um jeito diferente quando estou ao seu lado.
 
-Você é aquele tipo de amor que não se explica, só se sente… e eu sinto em cada detalhe: no jeito que você sorri, na forma como me olha, na calma que sua presença me traz e na intensidade que só você consegue despertar em mim. Você é, sem dúvida, a melhor parte de tudo o que eu vivo.
+Você é aquele tipo de amor que não se explica, só se sente… e eu sinto em cada detalhe...
 
-Eu admiro cada pedaço de quem você é — sua força, sua delicadeza, seus sonhos, até suas imperfeições que, pra mim, são perfeitas. Te amar é como viver dentro de um sentimento infinito, que cresce mais a cada dia, sem limite, sem medo, sem fim.
-
-Hoje eu só desejo que a vida te abrace do jeito que você merece. Que cada sonho seu encontre caminho, que cada lágrima se transforme em aprendizado e que cada sorriso se multiplique mil vezes. E, acima de tudo, que eu continue fazendo parte da sua história… não só hoje, mas em todos os seus próximos aniversários.
-
-Eu prometo estar ao seu lado nos dias bons e ruins, segurar sua mão quando você precisar e nunca deixar você esquecer o quanto é amada. Porque você é o meu lar, o meu porto seguro, o meu maior sentimento.
-
-Feliz aniversário, meu amor. Que hoje seja só um reflexo de tudo que você é: incrível, intensa e inesquecível.
-
-Eu te amo mais do que palavras conseguem dizer… 💜💜💜
+Eu te amo mais do que palavras conseguem dizer 💜💜💜
     </div>
-
-    <div class="contador" id="contador"></div>
 </div>
 
+</div>
 </div>
 
 <script>
-/* GARANTE que tudo carregou */
 document.addEventListener("DOMContentLoaded", function() {
-
     document.getElementById("btnAbrir").addEventListener("click", function() {
         document.getElementById("inicio").style.display = "none";
         document.getElementById("carta").style.display = "block";
     });
-
-});
-
-/* Contador */
-function atualizarContador() {
-    const inicio = new Date("2025-10-10");
-    const agora = new Date();
-
-    let diff = agora - inicio;
-
-    let dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-    let horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    let minutos = Math.floor((diff / (1000 * 60)) % 60);
-    let segundos = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("contador").innerText =
-        `Juntos há ${dias} dias, ${horas}h ${minutos}m ${segundos}s 💜`;
-}
-setInterval(atualizarContador, 1000);
-
-/* Corações */
-document.addEventListener("click", e => {
-    let c = document.createElement("div");
-    c.className = "coracao";
-    c.style.left = e.clientX + "px";
-    c.style.top = e.clientY + "px";
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 2000);
 });
 </script>
 
